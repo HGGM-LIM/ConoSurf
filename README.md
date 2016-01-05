@@ -1,1 +1,3 @@
-The repository contains the 3D Slicer modules from the ... paper.
+## ConoSurf
+
+Open-source 3D scanning system based on a conoscopic holography device for acquiring surgical surfaces
