@@ -13,9 +13,9 @@ class ConoProbeConnector(ScriptedLoadableModule):
   def __init__(self, parent):
     ScriptedLoadableModule.__init__(self, parent)
     self.parent.title = "ConoProbeConnector" # TODO make this more human readable by adding spaces
-    self.parent.categories = ["LIM Modules"]
+    self.parent.categories = ["IGT"]
     self.parent.dependencies = []
-    self.parent.contributors = ["Mikael Brudfors (CMIC, UCL, London, UK)"] 
+    self.parent.contributors = ["Mikael Brudfors (2015 The Biomedical Imaging and Instrumentation Group (BiiG) of the University Carlos III de Madrid (https://image.hggm.es/)"] 
     self.parent.helpText = """
     This is an example of scripted loadable module bundled in an extension.
     It performs a simple thresholding on the input volume and optionally captures a screenshot.

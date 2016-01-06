@@ -9,9 +9,9 @@ class PointSetProcessingPy(ScriptedLoadableModule):
   def __init__(self, parent):
     ScriptedLoadableModule.__init__(self, parent)
     self.parent.title = "PointSetProcessing" 
-    self.parent.categories = ["Filtering"]
+    self.parent.categories = ["IGT"]
     self.parent.dependencies = []
-    self.parent.contributors = ["Mikael Brudfors (CMIC, UCL, London, UK)"] 
+    self.parent.contributors = ["Mikael Brudfors (2015 The Biomedical Imaging and Instrumentation Group (BiiG) of the University Carlos III de Madrid (https://image.hggm.es/)"]
     self.parent.helpText = """
     This module reconstructs a surface from unorganized points. For more information see: https://github.com/brudfors/SlicerPointSetProcessing
     """

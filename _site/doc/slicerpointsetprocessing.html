@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <title>ConoSurf: : PointSetProcessing</title>
+        <meta name="description" content="Open-source 3D scanning system based on a conoscopic holography device for acquiring surgical surfaces">
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/syntax.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div id="header" class="col-sm-12">
+                    <h4><a class="brand" href="/">ConoSurf:</a>
+    <small>Open-source 3D scanning system based on a conoscopic holography device for acquiring surgical surfaces</small>
+</h4>
+
+                </div>
+            </div>
+
+            <div class="row">
+                
+                
+                    <div id="navigation" class="col-sm-2">
+                        <ul class="nav nav-list">
+    <li><a href="/">Home</a></li>
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Documentation</li>
+            
+            <li data-order="5"><a href="/doc/igt-scenario.html">IGT Scenario</a></li>
+        
+            
+            <li data-order="4"><a href="/doc/biigoptitrack.html">BiiGOptitrack</a></li>
+        
+            
+            <li data-order="3"><a href="/doc/slicerpointsetprocessing.html">PointSetProcessing</a></li>
+        
+            
+            <li data-order="2"><a href="/doc/conoprobeconnector.html">ConoProbeConnector</a></li>
+        
+            
+            <li data-order="1"><a href="/doc/getting-started.html">Getting Started</a></li>
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Reference</li>
+            
+            <li data-order="1"><a href="/ref/acknowledgements.html">Acknowledgements</a></li>
+        
+            
+            <li data-order="2"><a href="/ref/contact.html">Contact</a></li>
+        
+            
+            <li data-order="3"><a href="/ref/references.html">References</a></li>
+        
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Developers</li>
+            
+            <li data-order="3"><a href="/dev/license.html">License</a></li>
+        
+            
+            <li data-order="2"><a href="/dev/changelog.html">Changelog</a></li>
+        
+            
+            <li data-order="1"><a href="/dev/contributing.html">Contributing</a></li>
+        
+    
+        
+        
+
+        
+    
+<!-- List additional links. It is recommended to add a divider
+    e.g. <li class="divider"></li> first to break up the content. -->
+</ul>
+
+                    </div>
+
+                    <div id="content" class="col-sm-10">
+                        <div class="page-header">
+    <h2>PointSetProcessing
+        
+    </h2>
+</div>
+
+<p>PointSetProcessing is a module for 3D Slicer which can perform some common point-set processing tasks:</p>
+
+<ul>
+<li><p><strong>Downsampling</strong>: Downsampling of an input-point set using [1].</p></li>
+<li><p><strong>Outlier removal</strong>: Outliers removal from an input point-set using [3].</p></li>
+<li><p><strong>Estimate normals</strong>:  Approximate normals of an input point-set, which can be done using either [2] or [3,4]. In order to perform the Poisson surface reconstruction, the normals of the point set <em>has</em> to be constructed.  For the reconstruction mehod based on Delaunay triangulation, this is <em>not</em> necessary.</p></li>
+<li><p><strong>Surface reconstruction</strong>: The surface reconstruction implementation uses either Possion surface reconstruction [5, 6] or Delaunay triangulation [7].</p></li>
+</ul>
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/HGGM-LIM/ConoSurf/gh-pages/images/Fig3b.PNG" alt="Fig3b" align="middle" style="width: 600px;"/>
+</p>
+
+<p></p>
+<p align="center">
+<b>Figure 3.</b> The PointSetProcessing module which performs surface reconstruction from sets of unorganized points as well as other common point-set processing tasks.
+</p></p>
+
+<h4 id="build-instructions">Build Instructions</h4>
+
+<ol>
+<li><strong>3D Slicer</strong>: Follow the instructions found here: <a href="http://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Developers/Build_Instructions">http://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Developers/Build_Instructions</a></li>
+<li><strong>vtkInfoVisBoost</strong>: Download the latest version of Boost from here: <a href="http://www.boost.org/users/history/version_1_59_0.html">http://www.boost.org/users/history/version_1_59_0.html</a>, and extract to a folder of your choice (BOOST_ROOT). Open CMake and set the build directory to the VTK-build folder located in your 3D Slicer build. Add an entry called BOOST_ROOT, enable vtkInfoVisBoost and vtkInfoVisBoostGraphAlgorithms, then press Generate. Open the Slicer.sln located in the top directory of your Slicer build and build Slicer again.</li>
+<li><strong>PoissonReconstruction</strong>: Build the PoissonReconstruction library located here: <a href="https://github.com/daviddoria/PoissonReconstruction">https://github.com/daviddoria/PoissonReconstruction</a>, and link it with the VTK-build located in your 3D Slicer build folder.</li>
+<li><strong>PointSetProcessing</strong>: Build the PointSetProcessing library located here: <a href="https://github.com/daviddoria/PointSetProcessing">https://github.com/daviddoria/PointSetProcessing</a>, and link it with the VTK-build located in your 3D Slicer build folder.</li>
+<li><strong>PointSetProcessing</strong>: Build the PointSetProcessing module after adding: the PoissonReconstruction library, build folder and includes; the PointSetProcessing library and includes; and the vtkInfovisBoostGraphAlgorithms library, in CMake. Make sure as well to add the directory containing vtkPoissonReconstruction.dll to your Windows path.</li>
+<li><strong>Add module to 3D Slicer</strong>: The PointSetProcessing module is a mixed loadable and scriptable module. So, to add the module to 3D Slicer, just get the source code from <a href="https://github.com/HGGM-LIM/ConoSurf/">here</a> and point Slicer to the folder containing the <code>ConoProbeConnector.py</code> (via Edit -&gt; Application Settings -&gt; Modules -&gt; Additional module paths -&gt; Add). The module should now be available through the module selector in 3D Slicer (in the IGT category).</li>
+</ol>
+
+<h4 id="usage">Usage</h4>
+
+<p>Usage example</p>
+
+<h4 id="bibliography">Bibliography</h4>
+
+<ol>
+<li><a href="http://www.vtk.org/doc/nightly/html/classvtkCleanPolyData.html">http://www.vtk.org/doc/nightly/html/classvtkCleanPolyData.html</a></li>
+<li><a href="http://www.vtk.org/doc/nightly/html/classvtkPolyDataNormals.html">http://www.vtk.org/doc/nightly/html/classvtkPolyDataNormals.html</a></li>
+<li><a href="http://daviddoria.com/a-point-set-processing-toolkit-for-vtk/">http://daviddoria.com/a-point-set-processing-toolkit-for-vtk/</a></li>
+<li>Hoppe, Hugues, et al. Surface reconstruction from unorganized points. Vol. 26. No. 2. ACM, 1992.</li>
+<li>Kazhdan, Michael, Matthew Bolitho, and Hugues Hoppe. &quot;Poisson surface reconstruction.&quot; Proceedings of the fourth Eurographics symposium on Geometry processing. Vol. 7. 2006.</li>
+<li>Doria D., Gelas A. Poisson Surface Reconstruction for VTK. 2010 Mar (with minor changes/improvements by me)</li>
+<li><a href="http://www.vtk.org/doc/nightly/html/classvtkDelaunay3D.html">http://www.vtk.org/doc/nightly/html/classvtkDelaunay3D.html</a> </li>
+</ol>
+
+
+                    </div>
+                
+            </div>
+
+            
+
+            <div class="row">
+                <div id="footer" class="col-sm-12">
+                    Documentation for <a href="http://hggm-lim.github.io/ConoSurf/">ConoSurf:</a>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function orderNav() {
+                var list,
+                    section,
+                    header,
+                    sections = [],
+                    lists = {},
+                    headers = {};
+
+                var navUl = document.querySelectorAll('#navigation ul')[0],
+                    navLis = document.querySelectorAll('#navigation ul li');
+
+                if (!navUl) return;
+
+                for (var i = 0; i < navLis.length; i++) {
+                    var order, li = navLis[i];
+
+                    if (li.classList.contains('nav-header')) {
+                        section = li.textContent || li.innerText;
+                        sections.push(section);
+                        headers[section] = li;
+                        continue;
+                    }
+
+                    if (!lists[section]) {
+                        lists[section] = [];
+                    }
+
+                    order = parseFloat(li.getAttribute('data-order'))
+                    lists[section].push([order, li]);
+                }
+
+                for (var i = 0; i < sections.length; i++) {
+                    section = sections[i];
+                    list = lists[section].sort(function(a, b) {
+                        return a[0] - b[0];
+                    });
+
+                    if (header = headers[section]) {
+                        navUl.appendChild(header);
+                    }
+                    for (var j = 0; j < list.length; j++) {
+                        navUl.appendChild(list[j][1]);
+                    }
+                }
+            }
+
+            if (document.querySelectorAll) orderNav();
+        </script>
+        
+    </body>
+</html>

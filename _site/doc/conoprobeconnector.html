@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <title>ConoSurf: : ConoProbeConnector</title>
+        <meta name="description" content="Open-source 3D scanning system based on a conoscopic holography device for acquiring surgical surfaces">
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/syntax.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div id="header" class="col-sm-12">
+                    <h4><a class="brand" href="/">ConoSurf:</a>
+    <small>Open-source 3D scanning system based on a conoscopic holography device for acquiring surgical surfaces</small>
+</h4>
+
+                </div>
+            </div>
+
+            <div class="row">
+                
+                
+                    <div id="navigation" class="col-sm-2">
+                        <ul class="nav nav-list">
+    <li><a href="/">Home</a></li>
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Documentation</li>
+            
+            <li data-order="5"><a href="/doc/igt-scenario.html">IGT Scenario</a></li>
+        
+            
+            <li data-order="4"><a href="/doc/biigoptitrack.html">BiiGOptitrack</a></li>
+        
+            
+            <li data-order="3"><a href="/doc/slicerpointsetprocessing.html">PointSetProcessing</a></li>
+        
+            
+            <li data-order="2"><a href="/doc/conoprobeconnector.html">ConoProbeConnector</a></li>
+        
+            
+            <li data-order="1"><a href="/doc/getting-started.html">Getting Started</a></li>
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Reference</li>
+            
+            <li data-order="1"><a href="/ref/acknowledgements.html">Acknowledgements</a></li>
+        
+            
+            <li data-order="2"><a href="/ref/contact.html">Contact</a></li>
+        
+            
+            <li data-order="3"><a href="/ref/references.html">References</a></li>
+        
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Developers</li>
+            
+            <li data-order="3"><a href="/dev/license.html">License</a></li>
+        
+            
+            <li data-order="2"><a href="/dev/changelog.html">Changelog</a></li>
+        
+            
+            <li data-order="1"><a href="/dev/contributing.html">Contributing</a></li>
+        
+    
+        
+        
+
+        
+    
+<!-- List additional links. It is recommended to add a divider
+    e.g. <li class="divider"></li> first to break up the content. -->
+</ul>
+
+                    </div>
+
+                    <div id="content" class="col-sm-10">
+                        <div class="page-header">
+    <h2>ConoProbeConnector
+        
+    </h2>
+</div>
+
+<p>ConoProbeConnector is a module for 3D Slicer which can aquire and visualize point-sets from a tracked conoscopic holography single-point measurement device called a <a href="http://www.optimet.com/3dmeasurementsystem-products.php">ConoProbe</a>. Its main features are:</p>
+
+<ul>
+<li><p><strong>Real-time, intuitive 3D visualization</strong>: Points can be recorded and visualized in real time. By setting a principal direction and an interval, the points are coloured in order to make the acquired point-set easier to interpret. </p></li>
+<li><p><strong>Live filtering and post-processing</strong>: By setting a threshold for the signal-to-noise ratio and an interval for the distance (data from the ConoProbe), points can be filtered during acquisition.  Once data has been acquired it can also be post-processed with respect to the same parameters.</p></li>
+<li><p><strong>First-person view</strong>: A reference 3D model of the ConoProbe, acquired using an Artec Eva surface scanner (Artec, CA, USA), can be loaded into the module enabling an intuitive first-person view during acquisition.</p></li>
+<li><p><strong>Recording and simulating</strong>: The recorded point-set can be saved both in CSV and VTK format (the CSV-file includes also measurement and tracking information). Additionally, the entire Plus data stream can be recorded and replayed.</p></li>
+</ul>
+
+<h4 id="build-instructions">Build Instructions</h4>
+
+<ol>
+<li><strong>3D Slicer</strong>: Detailed instructions on how to build 3D Slicer can be found <a href="http://www.slicer.org/slicerWiki/index.php/Documentation/Nightly/Developers/Build_Instructions">here</a>.</li>
+<li><strong>The Plus Toolkit</strong>: Detailed instructions on how to build the Plus Toolkit can be found <a href="https://www.assembla.com/spaces/plus/wiki/Developers_guide">here</a>. Remember that in order to have support for the ConoProbe device it is necessary to enable PLUS_USE_OPTIMET_CONOPROBE in the CMake configuration of Plus and then point CMake to the required ConoProbe Smart32 binaries obtained from <a href="http://www.optimet.com/smart32-sdk.php">here</a>.</li>
+<li><strong>ConoProbeConnector</strong>: The ConoProbeConnector module is a so called scriptable module, meaning that no build is required. So, to add the module to 3D Slicer, just get the source code from <a href="https://github.com/HGGM-LIM/ConoSurf/">here</a> and point Slicer to the folder containing the <code>ConoProbeConnector.py</code> (via Edit -&gt; Application Settings -&gt; Modules -&gt; Additional module paths -&gt; Add). The module should now be available through the module selector in 3D Slicer (in the IGT category).</li>
+</ol>
+
+<h4 id="usage">Usage</h4>
+
+<p>Usage example</p>
+
+
+                    </div>
+                
+            </div>
+
+            
+
+            <div class="row">
+                <div id="footer" class="col-sm-12">
+                    Documentation for <a href="http://hggm-lim.github.io/ConoSurf/">ConoSurf:</a>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function orderNav() {
+                var list,
+                    section,
+                    header,
+                    sections = [],
+                    lists = {},
+                    headers = {};
+
+                var navUl = document.querySelectorAll('#navigation ul')[0],
+                    navLis = document.querySelectorAll('#navigation ul li');
+
+                if (!navUl) return;
+
+                for (var i = 0; i < navLis.length; i++) {
+                    var order, li = navLis[i];
+
+                    if (li.classList.contains('nav-header')) {
+                        section = li.textContent || li.innerText;
+                        sections.push(section);
+                        headers[section] = li;
+                        continue;
+                    }
+
+                    if (!lists[section]) {
+                        lists[section] = [];
+                    }
+
+                    order = parseFloat(li.getAttribute('data-order'))
+                    lists[section].push([order, li]);
+                }
+
+                for (var i = 0; i < sections.length; i++) {
+                    section = sections[i];
+                    list = lists[section].sort(function(a, b) {
+                        return a[0] - b[0];
+                    });
+
+                    if (header = headers[section]) {
+                        navUl.appendChild(header);
+                    }
+                    for (var j = 0; j < list.length; j++) {
+                        navUl.appendChild(list[j][1]);
+                    }
+                }
+            }
+
+            if (document.querySelectorAll) orderNav();
+        </script>
+        
+    </body>
+</html>
