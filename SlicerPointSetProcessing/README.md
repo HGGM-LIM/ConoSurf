@@ -1,4 +1,8 @@
-# SlicerPointSetProcessing
+## SlicerPointSetProcessing
+
+Source code repository for the SlicerPointSetProcessing module. Full documentation at http://hggm-lim.github.io/ConoSurf/.
+
+<!---# SlicerPointSetProcessing
 SlicerPointSetProcessing is a module for 3D Slicer which can perform common point-set processing tasks such as outlier removal, normals estimation and surface reconstruction, using various methods.
 
 ### Downsampling
@@ -33,4 +37,4 @@ The surface reconstruction uses either Possion surface reconstruction [5, 6] or 
 4. Hoppe, Hugues, et al. Surface reconstruction from unorganized points. Vol. 26. No. 2. ACM, 1992.
 5. Kazhdan, Michael, Matthew Bolitho, and Hugues Hoppe. "Poisson surface reconstruction." Proceedings of the fourth Eurographics symposium on Geometry processing. Vol. 7. 2006.
 6. Doria D., Gelas A. Poisson Surface Reconstruction for VTK. 2010 Mar (with minor changes/improvements by me)
-7. http://www.vtk.org/doc/nightly/html/classvtkDelaunay3D.html 
+7. http://www.vtk.org/doc/nightly/html/classvtkDelaunay3D.html --->
