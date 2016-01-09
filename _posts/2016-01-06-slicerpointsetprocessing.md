@@ -20,7 +20,7 @@ PointSetProcessing is a module for 3D Slicer which can perform some common point
 </p>
 </p>
 <p align="center">
-<b>Figure 3.</b> The PointSetProcessing module which performs surface reconstruction from sets of unorganized points as well as other common point-set processing tasks.
+<b>Figure 4.</b> The PointSetProcessing module which performs surface reconstruction from sets of unorganized points as well as other common point-set processing tasks.
 </p>
 
 #### Build Instructions
@@ -39,7 +39,7 @@ For a basic use-case scenario, add the sample point-set, obtained from a breast 
 </p>
 </p>
 <p align="center">
-<b>Figure 4.</b> Output from the basic use-case scenario on the `Points_Breast_phantom.vtp` data-set. Top) Results from estimating the normals. Bottom) Results from computing the surface.
+<b>Figure 5.</b> Output from the basic use-case scenario on the `Points_Breast_phantom.vtp` data-set. Top) Results from estimating the normals. Bottom) Results from computing the surface.
 </p>
 
 #### Bibliography

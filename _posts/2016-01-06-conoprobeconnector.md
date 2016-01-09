@@ -19,7 +19,7 @@ ConoProbeConnector is a module for 3D Slicer which can aquire and visualize poin
 <img src="https://raw.githubusercontent.com/HGGM-LIM/ConoSurf/gh-pages/images/Fig3a.PNG" alt="Fig3a" align="middle" style="width: 600px;"/>
 </p>
 <p align="center">
-<b>Figure 1.</b> The ConoProbeConnector module which interfaces with a ConoProbe and a tracking system (with a photo of an acquisition process superimposed).
+<b>Figure 3.</b> The ConoProbeConnector module which interfaces with a ConoProbe and a tracking system (with a photo of an acquisition process superimposed).
 </p>
 
 #### Build Instructions
