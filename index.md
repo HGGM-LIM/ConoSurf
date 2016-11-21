@@ -6,6 +6,10 @@ title: "Jekyll Docs Template"
 ## ConoSurf:
 #### Open-source 3D scanning system based on a conoscopic holography device for acquiring surgical surfaces
 ---
+#### Paper
+[ConoSurf: Open-source 3D scanning system based on a conoscopic holography device for acquiring surgical surfaces](http://hggm-lim.github.io/ConoSurf/doc/conoprobeconnector.html). Mikael Brudfors, Verónica García-Vázquez, Begoña Sesé-Lucio, Eugenio Marinetto, Manuel Desco and Javier Pascau.
+*The International Journal of Medical Robotics and Computer Assisted Surgery*. November 2016.
+
 #### Introduction
 A major diffculty in image guided therapy (IGT) is acquiring the patient's anatomy intraoperatively, which can be used for registering preoperative information. Intraoperative use of standard modalities has several limitations, such as low image quality (ultrasound), radiation exposure (computed tomography) or high costs (magnetic resonance imaging). An alternative approach is using a tracked pointer and registering the acquired points to surfaces identified in preoperative images. However, the pointer may cause tissue deformations and may additionally have difficulty in accessing narrow cavities during an intraoperative procedure. Recent proposals, utilizing a tracked conoscopic holography device, have shown promising results without the previously mentioned drawbacks.
 
